@@ -1,13 +1,27 @@
-<h1><%= @list.name %></h1>
+<div class="list-container">
+<h1 class="list-title"><%= @list.name %></h1>
+<div class="btn btn-success add-film"><%= link_to "Add a film to this list", new_list_bookmark_path(@list.id) %></div>
+</div>
+<div class="d-flex">
 <% @list.bookmarks.each do |bookmark| %>
-  <h3><%= bookmark.movie.title %></h3>
-  <p><%= bookmark.comment %></p>
-        <%= link_to "Remove",
-                  bookmark_path(bookmark),
+<div class="card m-3" style="width: 18rem;">
+  <%= image_tag bookmark.movie.poster_url, alt: "movie poster for #{bookmark.movie.title}", class: "card-img-top"  %>
+  <div class="card-body">
+    <h5 class="card-title"><%= bookmark.movie.title %></h5>
+    <div class="rating d-flex align-items-stretch">
+    <i class="fas fa-star"></i><p id="rating-text"><%= bookmark.movie.rating %></p>
+    </div>
+    <p class="card-text"><%= bookmark.movie.overview %></p>
+    <div class="remove-film"><%= link_to 'Remove film', bookmark_path(bookmark),
                   method: :delete,
-                  data: { confirm: "Are you sure?" } %>
+                  data: { confirm: "Are you sure you want to remove this film?" }%>
+  </div>
+</div>
+</div>
 <% end %>
+</div>
+
 <br>
-<%= link_to "Add a film to this list", new_list_bookmark_path(@list.id) %>
-<br>
-<%= link_to 'Back to all lists', lists_path %>
+<div class="back-button">
+<div class="btn btn-dark back-button"><%= link_to 'Back to all lists', lists_path %></div>
+</div>

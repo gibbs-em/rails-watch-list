@@ -1,0 +1,20 @@
+.hero-container {
+  height: 70vh;
+  position: relative;
+  text-align: center;
+  color: #000000;
+}
+
+.hero {
+  width: 100vw;
+}
+
+.hero-text {
+  background-color: white;
+  padding: 24px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
