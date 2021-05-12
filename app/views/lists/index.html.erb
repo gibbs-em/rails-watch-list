@@ -1,11 +1,12 @@
-<div class="hero-container">
-  <div class="text-bg">
-  <div class="hero-text">
-  <h1>Ones to watch</h1>
-  <h2>Create lists of your favourite films</h2>
-  </div>
-  </div>
+<div class="hero-image">
   <%= image_tag "banner.jpg", alt: "picture of a cinema", class: "hero" %>
+  <div class="hero-text">
+    <div class="text-shadow">
+      <h1>Ones to <span id="banner-typed-text"></span></h1>
+      <p>Create lists of your favourite films</p>
+    </div>
+    <div class="btn btn-success create">Make a list</div>
+  </div>
 </div>
 
 <div class="d-flex justify-content-around card-wrapper">
@@ -14,8 +15,9 @@
   <div class="card-body">
     <h4 class="card-title"><%= link_to list.name, list_path(list.id) %></h4>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <div class="btn btn-light"><%= link_to 'View list', list_path(list.id)%></a>
+    <div class="btn btn-light"><%= link_to 'View this list', list_path(list.id)%></a>
   </div>
 </div>
 </div>
 <% end %>
+</div>

@@ -1,34 +1,39 @@
-<div class="list-banner">
-<% if @list.photo.attached? %>
-<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
-<% else %>
-<%= image_tag "film.jpg", height: 300, width: 400, crop: :fill  %>
-<% end %>
-</div>
+
+<div class="show-body">
 <div class="list-container">
-<h1 class="list-title"><%= @list.name %></h1>
-<div class="btn btn-success add-film"><%= link_to "Add a film to this list", new_list_bookmark_path(@list.id) %></div>
+<div class="list-banner">
+  <% if @list.photo.attached? %>
+  <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+  <% else %>
+  <%= image_tag "film.jpg", height: 300, width: 400, crop: :fill  %>
+  <% end %>
+</div>
+<div class="list-info">
+  <h1 class="list-title"><%= @list.name %></h1>
+<div class="btn btn-success create"><%= link_to "Add a film to this list", new_list_bookmark_path(@list.id) %></div>
+</div>
 </div>
 <div class="d-flex">
-<% @list.bookmarks.each do |bookmark| %>
-<div class="card m-3" style="width: 18rem;">
-  <%= image_tag bookmark.movie.poster_url, alt: "movie poster for #{bookmark.movie.title}", class: "card-img-top"  %>
-  <div class="card-body">
-    <h5 class="card-title"><%= bookmark.movie.title %></h5>
+  <% @list.bookmarks.each do |bookmark| %>
+  <div class="card m-3 film-card" style="width: 18rem;">
+    <%= image_tag bookmark.movie.poster_url, alt: "movie poster for #{bookmark.movie.title}", class: "card-img-top"  %>
+    <div class="card-body">
+      <h5 class="card-title"><%= bookmark.movie.title %></h5>
     <div class="rating d-flex align-items-stretch">
-    <i class="fas fa-star"></i><p id="rating-text"><%= bookmark.movie.rating %></p>
+      <i class="fas fa-star"></i><p id="rating-text"><%= bookmark.movie.rating %></p>
     </div>
-    <p class="card-text"><%= bookmark.movie.overview %></p>
-    <div class="remove-film"><%= link_to 'Remove film', bookmark_path(bookmark),
+      <p class="card-text"><%= bookmark.movie.overview %></p>
+      <div class="remove-film"><%= link_to 'Remove film', bookmark_path(bookmark),
                   method: :delete,
                   data: { confirm: "Are you sure you want to remove this film?" }%>
+    </div>
+    </div>
   </div>
-</div>
-</div>
-<% end %>
+  <% end %>
 </div>
 
 <br>
 <div class="back-button">
 <div class="btn btn-dark back-button"><%= link_to 'Back to all lists', lists_path %></div>
+</div>
 </div>

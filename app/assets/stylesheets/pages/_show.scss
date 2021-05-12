@@ -1,11 +1,24 @@
 .list-container {
-  height: 15vh;
-  position: relative;
-  text-align: center;
+  display: grid;
+  grid-template-columns: auto auto;
   color: #000000;
   h1 {
     margin-top: 30px;
   }
+}
+.list-banner {
+  color: #000000;
+  border: none;
+  margin: 10px;
+  img {
+    border-radius: 4px;
+  }
+}
+
+.list-info {
+  padding-top: 5vh;
+  position: absolute;
+  left: 35vw
 }
 
 .back-button {
@@ -25,29 +38,12 @@
   }
 }
 
-.add-film {
+.btn-success {
   .btn {
     background-color: $green
   }
   a {
     color: $white;
-  }
-}
-
-
-.card-text {
-  p {
-    font-size: 12px;
-    color: $gray
-  }
-}
-
-.rating {
-  .fa-star {
-    color: $yellow
-  }
-  p {
-    color: $gray
   }
 }
 

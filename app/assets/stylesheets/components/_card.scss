@@ -7,3 +7,40 @@
 .card {
   width: 300px;
 }
+
+.card-title {
+  a {
+    color: $green
+  }
+}
+
+.btn-light {
+  a {
+    color: $green
+  }
+}
+
+.film-card {
+  border: 0px;
+}
+
+.card-text {
+  p {
+    font-size: 12px;
+    color: $gray
+  }
+}
+
+.rating {
+  .fa-star {
+    color: $yellow;
+    padding-right: 8px;
+  }
+  p {
+    color: $gray
+  }
+}
+
+.show-body {
+  background-color: $light-gray
+}
